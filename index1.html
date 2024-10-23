@@ -1,0 +1,85 @@
+<!-- document.getElementById("submitButton").addEventListener("click", function() {
+    let errors = [];
+    
+    const firstName = document.getElementById("first-name").value.trim();
+    const lastName = document.getElementById("last-name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const state = document.getElementById("state").value.trim();
+    const zip = document.getElementById("zip").value.trim();
+    const website = document.getElementById("website").value.trim();
+    const project = document.getElementById("project").value.trim();
+    const hosting = document.querySelector('input[name="hosting"]:checked');
+
+    // Validation logic
+    if (!firstName) errors.push("First Name - is required.");
+    if (!lastName) errors.push("Last Name - is required.");
+    if (!email || !validateEmail(email)) errors.push("E-Mail - is invalid.");
+    if (!phone || !validatePhone(phone)) errors.push("Phone - is invalid.");
+    if (!address) errors.push("Address - is required.");
+    if (!city) errors.push("City - is required.");
+    if (!state) errors.push("State - is required.");
+    if (!zip || !validateZip(zip)) errors.push("Zip Code - is invalid.");
+    if (!website) errors.push("Website/Domain Name - is required.");
+    if (!hosting) errors.push("Hosting - please select an option.");
+    if (!project) errors.push("Project Description - is required.");
+
+    // If errors exist, display them
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+    } else {
+        alert("Form submitted successfully!");
+    }
+});
+
+// Helper function for email validation
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Helper function for phone number validation
+function validatePhone(phone) {
+    const re = /^\(\d{3}\)\d{3}-\d{4}$/;
+    return re.test(phone);
+}
+
+// Helper function for zip code validation
+function validateZip(zip) {
+    const re = /^\d{5}(?:[-\s]\d{4})?$/;
+    return re.test(zip);
+}
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Details</title>
+</head>
+<body>
+    <h1>Form Details</h1>
+    <div id="details"></div>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const firstName = params.get("first-name");
+            const lastName = params.get("last-name");
+            const email = params.get("email");
+            const state = params.get("state");
+
+            const detailsDiv = document.getElementById("details");
+            detailsDiv.innerHTML = `
+                <p>First Name: ${firstName}</p>
+                <p>Last Name: ${lastName}</p>
+                <p>Email: ${email}</p>
+                <p>State: ${state}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
